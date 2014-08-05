@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body ng-app>
+		<div ng-controller='Mycontroller'>
+			<!--{{Myalert();}}-->
+			{{name | uppercase}}
+			<br />
+			1+2={{1+2}}
+			<br />
+			{{3*10 | currency}}
+			<br />
+			{{123.234 | number:2}}
+			<br />
+			{{a.b.c()}}
+			<br />
+			Name: <input ng-model="name" type="text"/>
+      		<button ng-click="greet()">Greet</button>
+		</div>
+        
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			function Mycontroller ( $window, $scope ) {
+				$scope.name="test";
+				$scope.Myalert=function(){
+					alert(8);
+				}
+       			$scope.greet = function() {
+				    ($window.mockWindow || $window).alert('Hello ' + $scope.name);
+				    var a;
+				    $window.alert(a);
+				}
+			}
+		</script>
+	</body>
+</html>
